@@ -10,7 +10,7 @@ export client_secret="secret"  # Twitter Consumer Secret
 ```
 Finally, run the program with
 ```sh
-$ ./install.sh
-source venv/bin/activate
+./install.sh
+. venv/bin/activate
 ./run.py
 ```

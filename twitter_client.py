@@ -14,7 +14,6 @@ def download_tweets_json(screen_name):
     base_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?'
     params = {'screen_name': screen_name,
               'count': 200,              # TODO: get 3400 tweets by traversing timeline
-              'trim_user': True,         # Don't need full user object
               'exclude_replies': True,   # Don't need replies
               'include_rts': False}      # Don't want retweets
 

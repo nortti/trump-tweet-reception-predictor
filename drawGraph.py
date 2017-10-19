@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import plotly
 import plotly.graph_objs as go
 import random

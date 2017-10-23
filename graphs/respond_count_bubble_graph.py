@@ -38,7 +38,7 @@ trace0= go.Scatter(
 fig_data.append(trace0);
 
 layout= go.Layout(
-    title= "Donald Trump's most recent tweets and respond count",
+    title= str(data.iloc[0]['user']['name']) + "'s most recent tweets and respond count",
     hovermode= 'closest',
     xaxis= dict(
         title= 'Retweet Count',
@@ -54,4 +54,4 @@ layout= go.Layout(
     showlegend= False
 )
 fig = go.Figure(data = fig_data, layout=layout)
-plotly.offline.plot(fig, filename = 'overall_graph')
+plotly.offline.plot(fig, filename = 'responds_count_bubble_graph.html')

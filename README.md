@@ -1,8 +1,7 @@
 # Trump Tweet Reception Predictor
 ### Prerequisites
 Python3, pip3
-### Getting tweets as json
-As a starting point, json\_data/realDonaldTrump.json contains about 2800 tweets by trump. There should be no need to fetch more for now, but here's how anyway:
+### Setup
 
 Register a Twitter app at apps.twitter.com. Check the Keys and Access Tokens page, and set the following environment variables.
 ```sh
@@ -11,7 +10,13 @@ export client_secret="secret"  # Twitter Consumer Secret
 ```
 Now run
 ```sh
-./install.sh
+git clone git@github.com:nortti/trump-tweet-reception-predictor.git
+cd trump-tweet-reception-predictor
+pip3 install virtualenv
+virtualenv -p python3 venv
 . venv/bin/activate
-./twitter_client.py realDonaldTrump
+pip3 install -r requirements.txt
 ```
+
+### Example usage (from virtual environment)
+./generate.py realDonaldTrump

@@ -6,7 +6,7 @@ import urllib
 from requests_oauthlib import OAuth1Session
 
 
-def download_tweets_json(screen_name):
+def get_tweets_json(screen_name):
     client_key = os.environ['client_key']
     client_secret = os.environ['client_secret']
 
@@ -22,8 +22,17 @@ def download_tweets_json(screen_name):
 
     json_data = twitter.get(url).json()
 
-    if 'errors' in json_data:  # Invalid screen name, probably
-        sys.exit(json_data['errors'])
+    if not json_data:
+        sys.exit('User has no tweets')
+
+    if 'errors' in json_data:
+        error = json_data.get('errors')[0]
+        if error.get('code') is 34:
+            sys.exit('User does not exist')
+        else:
+            sys.exit(error)
+
+    print('Getting tweets from %s...' % screen_name)
 
     # A single response includes up to 200 tweets. We can get as many as the
     # API lets us (up to 3200) by continually making requests with the max_id
@@ -32,7 +41,7 @@ def download_tweets_json(screen_name):
     # https://developer.twitter.com/en/docs/tweets/timelines/guides/working-with-timelines
     while True:
         max_id = json_data[-1]['id'] - 1
-        next_url = url + "&max_id=" + str(max_id)
+        next_url = url + '&max_id=' + str(max_id)
         tweet_batch = twitter.get(next_url).json()
 
         if not tweet_batch:
@@ -40,15 +49,4 @@ def download_tweets_json(screen_name):
         else:
             json_data += tweet_batch
 
-    filename = 'json_data/' + screen_name + '.json'
-    print('Writing %d tweets to %s' % (len(json_data), filename))
-
-    json_str = json.dumps(json_data)
-    json_file = open(filename, 'w')
-    json_file.write(json_str)
-    json_file.close()
-
-if len(sys.argv) is 1:
-    print('Missing argument')
-else:
-    download_tweets_json(sys.argv[1])
+    return json.dumps(json_data)

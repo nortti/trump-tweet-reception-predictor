@@ -19,4 +19,6 @@ pip3 install -r requirements.txt
 ```
 
 ### Example usage (from virtual environment)
+```sh
 ./generate.py realDonaldTrump
+```

@@ -102,7 +102,7 @@ def generate(twitter_data, out_dir):
 
     # Layout
     layout = dict(
-        title="Tweets' favorite count with slider",
+        title= str(data.iloc[0]['user']['name']) + "'s tweets favorite count with slider",
         hovermode= 'closest',
         xaxis=dict(
             title = "Time",

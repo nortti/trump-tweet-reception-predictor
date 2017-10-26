@@ -16,8 +16,8 @@ def generate(twitter_data, out_dir):
     retweet_count_normalized = []
     for i in range(len(data)):
         follower_count = data.iloc[i]['user']['followers_count']
-        favorite_count_normalized.append(follower_count / data.iloc[i]['favorite_count'])
-        retweet_count_normalized.append(follower_count / data.iloc[i]['retweet_count'])
+        favorite_count_normalized.append(data.iloc[i]['favorite_count']) #TODO: rename
+        retweet_count_normalized.append(data.iloc[i]['retweet_count'])
 
     # Graph data
     trace_favorite = go.Scatter(
@@ -102,7 +102,7 @@ def generate(twitter_data, out_dir):
 
     # Layout
     layout = dict(
-        title= str(data.iloc[0]['user']['name']) + "'s tweets favorite count with slider",
+        title= str(data.iloc[0]['user']['name']) + "'s tweets response line graph",
         hovermode= 'closest',
         xaxis=dict(
             title = "Time",

@@ -1,0 +1,9 @@
+1. Respond count line graph:
+- Using plotly library, we were able to create an interactive graph with slider for timeline and dropdown menu for seperate graph of favorite and retweet counts.
+- From this visualization, we spotted a few interesting data points. Before the Nov. 8, 2016 which is they day Donald Trump got elected, his twits have much lower combine responds combining with later twits. We also discovered that during his campaign, Trump tweets with higher frequency comparing to after he got elected. We think that there is a relation between the frequency of tweeting and the number of responds. 
+- From the graph, we noticed that most of the surges in responds are usually from twits which are special events related, such as Chrismast, New Year's Eve, the dead of Fidel Castro, or "Internet-friendly", which are topics or materials that are very controversial and intriguing to Internet users, for example, memes. 
+- An interesting observation is that Trump's twits that are written in uppercase letter usually receive high respond rate. 
+2. Respond count bubble graph: 
+- In this bubble graph, the size of the bubble refects the accumulate number of responds with regard to 2 times number of retweets and 1 time number of favorite count. This is because we believe that retweet "worth" more respond since it ignites further conversation.
+- From the graph, we notice some bubbles has high number of favorite count but low number of retweet count. These twits are usually related to Middle East. One of the reason might be because people agreeing with Trump's point of view annd have little to offer for further conversation. 
+- There are bubbles that have high number of retweet but low number of favorite. The topic or word choice of these twits are usually conversial, provocative. The analysis of using words in Trump's twits is explained further below

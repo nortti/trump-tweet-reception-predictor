@@ -1,4 +1,7 @@
 # Trump Tweet Reception Predictor
+
+### Peer reviewers, check nortti.win/introds for some static output
+
 ### Prerequisites
 Python3, pip3
 ### Setup
